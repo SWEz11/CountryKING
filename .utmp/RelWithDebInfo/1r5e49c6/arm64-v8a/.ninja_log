@@ -1,0 +1,12 @@
+# ninja log v5
+71	298	7697983220803479	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	1e523cdb7a5b2f49
+300	815	7697983225640781	C:/Users/rokas/Desktop/CountryKing/CountryKING/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1r5e49c6/obj/arm64-v8a/libswappywrapper.so	8df70679af261bf
+46	1143	7697983229179847	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	73fdb96c10414d54
+23	1170	7697983229502795	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	d851bcc516b19c43
+39	1212	7697983229943280	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	166d83d8efaf5126
+62	1272	7697983230547631	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7ee88b756ca80211
+54	1288	7697983230699171	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	3e06f80da9dd541e
+1	1510	7697983232933732	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	89401d932fe29575
+31	1518	7697983233009420	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8d6a48947522d6ac
+14	1678	7697983234546207	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	45202473f693e362
+1678	1895	7697983236729341	C:/Users/rokas/Desktop/CountryKing/CountryKING/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1r5e49c6/obj/arm64-v8a/libgame.so	104dc7e5ba37cf37

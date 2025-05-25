@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 4f08480ffa6c5ea498605045b6218f50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -210703404446679924
+    second: RGDLogo_0
+  - first:
+      213: -1757565731429209239
+    second: RGDLogo_1
+  - first:
+      213: -2809953047851946215
+    second: RGDLogo_2
+  - first:
+      213: 9081268167314036484
+    second: RGDLogo_3
+  - first:
+      213: 5986916660159225971
+    second: RGDLogo_4
+  - first:
+      213: -6454498674143469981
+    second: RGDLogo_5
+  - first:
+      213: 8984823207280870591
+    second: RGDLogo_6
+  - first:
+      213: -5857450673584666115
+    second: RGDLogo_7
+  - first:
+      213: 8429770669861819098
+    second: RGDLogo_8
+  - first:
+      213: -8510486118969015714
+    second: RGDLogo_9
+  - first:
+      213: 2101523633469052138
+    second: RGDLogo_10
+  - first:
+      213: 7161737524619144573
+    second: RGDLogo_11
+  - first:
+      213: -4076933864085722767
+    second: RGDLogo_12
+  - first:
+      213: -6527235712144465938
+    second: RGDLogo_13
+  - first:
+      213: -1499428342378365020
+    second: RGDLogo_14
+  - first:
+      213: -8748280880339067178
+    second: RGDLogo_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RGDLogo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 200
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c7df8be5e631df0800000000000000
+      internalID: -210703404446679924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ebffeb89e0883e047acb2f0db366b3ce
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RGDLogo_0: -210703404446679924
+      RGDLogo_1: -1757565731429209239
+      RGDLogo_10: 2101523633469052138
+      RGDLogo_11: 7161737524619144573
+      RGDLogo_12: -4076933864085722767
+      RGDLogo_13: -6527235712144465938
+      RGDLogo_14: -1499428342378365020
+      RGDLogo_15: -8748280880339067178
+      RGDLogo_2: -2809953047851946215
+      RGDLogo_3: 9081268167314036484
+      RGDLogo_4: 5986916660159225971
+      RGDLogo_5: -6454498674143469981
+      RGDLogo_6: 8984823207280870591
+      RGDLogo_7: -5857450673584666115
+      RGDLogo_8: 8429770669861819098
+      RGDLogo_9: -8510486118969015714
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
