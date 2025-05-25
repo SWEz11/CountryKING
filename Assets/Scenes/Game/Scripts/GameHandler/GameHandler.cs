@@ -21,7 +21,8 @@ public class GameHandler : MonoBehaviour
 
     void Awake()
     {
-        optionsHandler.GetBackgroundMusicVolume();
+        optionsHandler.GetBackgroundMusic();
+        optionsHandler.GetMasterVolume();
     }
 
     void Update()
@@ -52,12 +53,11 @@ public class GameHandler : MonoBehaviour
     void MoneyGenerator(float generatorTime, int moneyAmount)
     {
         player.timer += Time.deltaTime;
-        if (player.timer > generatorTime )
+        if (player.timer > generatorTime)
         {
             AddMoney(moneyAmount);
             player.timer = 0;
         }
     }
-
     
 }

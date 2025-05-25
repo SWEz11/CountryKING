@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4ef829b2910304586728da781fa216, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: ec146781a1906bd44b6290402dba39c0, type: 3}
+  m_Name: SaveSystem
   m_EditorClassIdentifier: 
-  moneyInt: 0
-  generatorTime: 10
-  moneyPerTime: 1
-  timer: 0
-  backgroundMusicVolumeValue: 1

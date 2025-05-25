@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsHandler : MonoBehaviour
@@ -11,6 +12,9 @@ public class OptionsHandler : MonoBehaviour
     [Header("Get Scripts / Objects")]
     [SerializeField] GameHandler gameHandler;
     [SerializeField] Slider backgroundMusicSlider;
+    [SerializeField] Slider mainVolumeSlider;
+    [SerializeField] SaveSystem saveSystem;
+    [SerializeField] AudioMixer mainVolumeMixer;
     public void OpenOptionsPanel()
     {
         if (!gameHandler.panelOpened)
@@ -26,29 +30,31 @@ public class OptionsHandler : MonoBehaviour
         gameHandler.panelOpened = false;
     }
 
-    //BackgroundMusic
-    private void SetVolume(float volume, AudioSource audioSource, Slider slider)
+    //Volumes
+
+    //BackgroundSound
+
+    public void SetBackgroundMusic()
     {
-        volume = slider.value;
-        audioSource.volume = volume;
-        Debug.Log(volume);
+        saveSystem.SaveVolume(backgroundMusicSlider, gameHandler.backgroundMusic, "BackgroundMusic");
     }
 
-    private void GetVolume(float volume, AudioSource audioSource, Slider slider)
+    public void GetBackgroundMusic()
     {
-        slider.value = volume;
-        audioSource.volume = slider.value;
-        Debug.Log("Loaded " + volume);
+        saveSystem.LoadVolume("BackgroundMusic", backgroundMusicSlider, gameHandler.backgroundMusic);
     }
 
-    //BackgroundMusic
-    public void SetBackgroundMusicVolume()
+
+    //MainVolume
+
+    public void SetMasterVolume()
     {
-        SetVolume(player.backgroundMusicVolumeValue, gameHandler.backgroundMusic, backgroundMusicSlider);
+        saveSystem.SaveMixerVolume(mainVolumeSlider, mainVolumeMixer, "MainVolume");
     }
 
-    public void GetBackgroundMusicVolume()
+    public void GetMasterVolume()
     {
-        GetVolume(player.backgroundMusicVolumeValue, gameHandler.backgroundMusic, backgroundMusicSlider);
+        saveSystem.LoadMixerVolume("MainVolume", mainVolumeSlider, mainVolumeMixer);
     }
+
 }
