@@ -51,4 +51,9 @@ public class SaveSystem
         moneyPerTime = PlayerPrefs.GetInt(prefsKeyForMoneyPerTime, 1);
         Debug.Log("Loaded " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
+
+    //Storage
+
+
+    
 }

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -34,7 +35,7 @@ public class GameHandler : MonoBehaviour
         optionsHandler.GetMasterVolume();
 
         //Money
-        saveSystem.LoadMoney(ref moneyInt, "MoneyAmount", moneyText , ref moneyGeneratorTime, "MoneyGeneratorTime", ref moneyPerTime, "MoneyPerTime");
+        saveSystem.LoadMoney(ref moneyInt, "MoneyAmount", moneyText, ref moneyGeneratorTime, "MoneyGeneratorTime", ref moneyPerTime, "MoneyPerTime");
     }
 
     void Update()
@@ -80,5 +81,6 @@ public class GameHandler : MonoBehaviour
     {
         saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
     }
+
 
 }
