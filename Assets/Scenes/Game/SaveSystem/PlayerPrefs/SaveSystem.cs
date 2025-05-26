@@ -17,7 +17,9 @@ public class SaveSystem
     public void SaveMixerVolume(Slider slider, AudioMixer audioMixer, string prefsKey)
     {
         PlayerPrefs.SetFloat("MainVolumeValue", slider.value);
-        audioMixer.SetFloat(prefsKey, slider.value);
+        PlayerPrefs.Save();
+        //audioMixer.SetFloat(prefsKey, slider.value);
+        audioMixer.SetFloat(prefsKey, Mathf.Log10(slider.value) * 20);
     }
 
     public void LoadVolume(string prefsKey, Slider slider, AudioSource audioSource, int defaultValue)
@@ -30,7 +32,7 @@ public class SaveSystem
     {
         slider.value = PlayerPrefs.GetFloat("MainVolumeValue", defaultValue);
         float volume = slider.value;
-        audioMixer.GetFloat(prefsKey, out volume);
+        audioMixer.SetFloat(prefsKey, Mathf.Log10(volume) * 20);
     }
 
     //Money
