@@ -41,7 +41,7 @@ public class SaveSystem
         Debug.Log("Saved " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 
-    public void LoadMoney(int moneyAmount, string prefsKeyForMoney, TMP_Text moneyText, float generatorTime, string prefsKeyForGenerator, int moneyPerTime, string prefsKeyForMoneyPerTime)
+    public void LoadMoney(ref int moneyAmount, string prefsKeyForMoney, TMP_Text moneyText, ref float generatorTime, string prefsKeyForGenerator, ref int moneyPerTime, string prefsKeyForMoneyPerTime)
     {
         moneyAmount = PlayerPrefs.GetInt(prefsKeyForMoney, 0);
         moneyText.text = moneyAmount.ToString();

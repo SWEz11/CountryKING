@@ -34,7 +34,7 @@ public class GameHandler : MonoBehaviour
         optionsHandler.GetMasterVolume();
 
         //Money
-        saveSystem.LoadMoney(moneyInt, "MoneyAmount", moneyText , moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        saveSystem.LoadMoney(ref moneyInt, "MoneyAmount", moneyText , ref moneyGeneratorTime, "MoneyGeneratorTime", ref moneyPerTime, "MoneyPerTime");
     }
 
     void Update()
@@ -47,7 +47,7 @@ public class GameHandler : MonoBehaviour
     public void UpdateMoney()
     {
         moneyText.text = moneyInt.ToString() + "$";
-        //saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
     }
 
     public void AddMoney(int moneyAmount)
@@ -78,7 +78,7 @@ public class GameHandler : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        //saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
     }
 
 }
