@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,12 @@ public class StorageHandler : MonoBehaviour
     [SerializeField] GameObject storagePanel;
     [SerializeField] GameHandler gameHandler;
     SaveSystem saveSystem = new SaveSystem();
+
+    [Header("Items Images / Items Names")]
+
+    [Header("Pistol")]
+    public Image pistol;
+
 
     void UpdateArmyCount()
     {
@@ -46,8 +53,17 @@ public class StorageHandler : MonoBehaviour
         gameHandler.panelOpened = false;
     }
 
-    public void LoadStorage() {
+    public void LoadStorage()
+    {
         saveSystem.LoadStorage("ArmyCount", ref armyCount, armyCountText, 0);
+    }
+
+
+    //Items
+    public enum ItemsNames
+    {
+        pistol,
+        
     }
 
 }
