@@ -40,7 +40,7 @@ public class SaveSystem
         PlayerPrefs.SetInt(prefsKeyForMoney, moneyAmount);
         PlayerPrefs.SetFloat(prefsKeyForGenerator, generatorTime);
         PlayerPrefs.SetInt(prefsKeyForMoneyPerTime, moneyPerTime);
-        Debug.Log("Saved " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
+        Debug.Log("Loaded Money " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 
     public void LoadMoney(ref int moneyAmount, string prefsKeyForMoney, TMP_Text moneyText, ref float generatorTime, string prefsKeyForGenerator, ref int moneyPerTime, string prefsKeyForMoneyPerTime)
@@ -49,11 +49,20 @@ public class SaveSystem
         moneyText.text = moneyAmount.ToString() + "$";
         generatorTime = PlayerPrefs.GetFloat(prefsKeyForGenerator, 6.0f);
         moneyPerTime = PlayerPrefs.GetInt(prefsKeyForMoneyPerTime, 1);
-        Debug.Log("Loaded " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
+        Debug.Log("Loaded Money" + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 
     //Storage
 
 
-    
+    public void SaveStorage(string prefsKeyForArmyCount, int armyCount)
+    {
+        PlayerPrefs.SetInt(prefsKeyForArmyCount, armyCount);
+    }
+
+    public void LoadStorage(string prefsKeyForArmyCount, ref int armyCount, TMP_Text armyCountText, int defaultValue)
+    {
+        armyCount = PlayerPrefs.GetInt(prefsKeyForArmyCount, defaultValue);
+        armyCountText.text = "Army Count " + armyCount.ToString();
+    }
 }

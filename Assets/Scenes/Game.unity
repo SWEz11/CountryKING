@@ -1979,6 +1979,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 216642916}
   mainVolumeMixer: {fileID: 24100000, guid: e0d1da8d1c02f4d4abab967f67c78207, type: 2}
   optionsHandler: {fileID: 1877553787}
+  storageHandler: {fileID: 884797365}
 --- !u!1 &620804251
 GameObject:
   m_ObjectHideFlags: 0

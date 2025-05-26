@@ -26,6 +26,7 @@ public class GameHandler : MonoBehaviour
 
     [Header("Get Scripts / Objects")]
     [SerializeField] OptionsHandler optionsHandler;
+    [SerializeField] StorageHandler storageHandler;
     SaveSystem saveSystem = new SaveSystem();
 
     void Awake()
@@ -36,6 +37,9 @@ public class GameHandler : MonoBehaviour
 
         //Money
         saveSystem.LoadMoney(ref moneyInt, "MoneyAmount", moneyText, ref moneyGeneratorTime, "MoneyGeneratorTime", ref moneyPerTime, "MoneyPerTime");
+
+        //Storage
+        storageHandler.LoadStorage();   
     }
 
     void Update()
@@ -80,6 +84,7 @@ public class GameHandler : MonoBehaviour
     void OnApplicationQuit()
     {
         saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        storageHandler.LoadStorage();
     }
 
 
