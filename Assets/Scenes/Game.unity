@@ -1708,7 +1708,6 @@ MonoBehaviour:
   backgroundMusic: {fileID: 216642916}
   mainVolumeMixer: {fileID: 24100000, guid: e0d1da8d1c02f4d4abab967f67c78207, type: 2}
   optionsHandler: {fileID: 1877553785}
-  saveSystem: {fileID: 11400000, guid: 713ad842cddaa004788bb7cb57564caa, type: 2}
 --- !u!1 &620804251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,7 +2802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da892a026df7a924a845ae7a0cd2ce96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 94b2662464a00924e854fb44ac36dfd7, type: 2}
   mailPanel: {fileID: 163424643}
   gameHandler: {fileID: 603111020}
 --- !u!1 &1453509383
@@ -3098,7 +3096,6 @@ MonoBehaviour:
   gameHandler: {fileID: 603111020}
   backgroundMusicSlider: {fileID: 880250579}
   mainVolumeSlider: {fileID: 1050472626}
-  saveSystem: {fileID: 11400000, guid: 713ad842cddaa004788bb7cb57564caa, type: 2}
 --- !u!4 &1877553786
 Transform:
   m_ObjectHideFlags: 0
