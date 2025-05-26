@@ -4,6 +4,8 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 public class SaveSystem
 {
+    [SerializeField]
+
     //Volume
 
     public void SaveVolume(Slider slider, AudioSource audioSource, string prefsKey)
@@ -44,7 +46,7 @@ public class SaveSystem
     public void LoadMoney(ref int moneyAmount, string prefsKeyForMoney, TMP_Text moneyText, ref float generatorTime, string prefsKeyForGenerator, ref int moneyPerTime, string prefsKeyForMoneyPerTime)
     {
         moneyAmount = PlayerPrefs.GetInt(prefsKeyForMoney, 0);
-        moneyText.text = moneyAmount.ToString();
+        moneyText.text = moneyAmount.ToString() + "$";
         generatorTime = PlayerPrefs.GetFloat(prefsKeyForGenerator, 6.0f);
         moneyPerTime = PlayerPrefs.GetInt(prefsKeyForMoneyPerTime, 1);
         Debug.Log("Loaded " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
