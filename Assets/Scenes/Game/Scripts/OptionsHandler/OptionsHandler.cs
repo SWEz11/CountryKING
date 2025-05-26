@@ -1,11 +1,8 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsHandler : MonoBehaviour
 {
-    [SerializeField] Player player;
-
     [Header("Options System")]
     public GameObject optionsPanel;
 
@@ -13,8 +10,7 @@ public class OptionsHandler : MonoBehaviour
     [SerializeField] GameHandler gameHandler;
     [SerializeField] Slider backgroundMusicSlider;
     [SerializeField] Slider mainVolumeSlider;
-    [SerializeField] SaveSystem saveSystem;
-    [SerializeField] AudioMixer mainVolumeMixer;
+    SaveSystem saveSystem = new SaveSystem();
     public void OpenOptionsPanel()
     {
         if (!gameHandler.panelOpened)
@@ -41,7 +37,7 @@ public class OptionsHandler : MonoBehaviour
 
     public void GetBackgroundMusic()
     {
-        saveSystem.LoadVolume("BackgroundMusic", backgroundMusicSlider, gameHandler.backgroundMusic);
+        saveSystem.LoadVolume("BackgroundMusic", backgroundMusicSlider, gameHandler.backgroundMusic, 1);
     }
 
 
@@ -49,12 +45,12 @@ public class OptionsHandler : MonoBehaviour
 
     public void SetMasterVolume()
     {
-        saveSystem.SaveMixerVolume(mainVolumeSlider, mainVolumeMixer, "MainVolume");
+        saveSystem.SaveMixerVolume(mainVolumeSlider, gameHandler.mainVolumeMixer, "MainVolume");
     }
 
     public void GetMasterVolume()
     {
-        saveSystem.LoadMixerVolume("MainVolume", mainVolumeSlider, mainVolumeMixer);
+        saveSystem.LoadMixerVolume("MainVolume", mainVolumeSlider, gameHandler.mainVolumeMixer, 1);
     }
 
 }

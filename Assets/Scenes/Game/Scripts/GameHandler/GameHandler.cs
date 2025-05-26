@@ -1,63 +1,84 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour
 {
-    [SerializeField] Player player;
+
+    [Header("Game Handler")]
+
+    [Header("Money Generator")]
+    public float moneyGeneratorTime;
+    public int moneyPerTime;
+    public float timer = 0.0f;
 
     [Header("Money")]
-    public TMP_Text moneyText;
+    [SerializeField] TMP_Text moneyText;
+    private int moneyInt;
 
     [Header("Panels")]
     public bool panelOpened;
 
     [Header("SoundsEffects")]
     public AudioSource backgroundMusic;
+    public AudioMixer mainVolumeMixer;
 
     [Header("Get Scripts / Objects")]
     [SerializeField] OptionsHandler optionsHandler;
+    SaveSystem saveSystem = new SaveSystem();
 
     void Awake()
     {
+        //Volumes
         optionsHandler.GetBackgroundMusic();
         optionsHandler.GetMasterVolume();
+
+        //Money
+        saveSystem.LoadMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
     }
 
     void Update()
     {
-        MoneyGenerator(player.generatorTime, player.moneyPerTime);
+        MoneyGenerator(moneyGeneratorTime, moneyPerTime);
     }
 
     //Money
 
     public void UpdateMoney()
     {
-        moneyText.text = player.moneyInt.ToString() + "$";
+        moneyText.text = moneyInt.ToString() + "$";
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
     }
 
     public void AddMoney(int moneyAmount)
     {
-        player.moneyInt += moneyAmount;
+        moneyInt += moneyAmount;
         UpdateMoney();
     }
 
     public void RemoveMoney(int moneyAmount)
     {
-        player.moneyInt -= moneyAmount;
+        moneyInt -= moneyAmount;
         UpdateMoney();
     }
 
     //Money Generator
     void MoneyGenerator(float generatorTime, int moneyAmount)
     {
-        player.timer += Time.deltaTime;
-        if (player.timer > generatorTime)
+        timer += Time.deltaTime;
+        if (timer > generatorTime)
         {
             AddMoney(moneyAmount);
-            player.timer = 0;
+            timer = 0;
+            Debug.Log("Passed");
         }
     }
-    
+
+    //Quit
+
+    void OnApplicationQuit()
+    {
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+    }
+
 }

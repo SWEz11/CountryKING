@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 $
+  m_text: 0$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46b12f4ffcc2a794ab145ac48546298e, type: 2}
   m_sharedMaterial: {fileID: -8320302184024927079, guid: 46b12f4ffcc2a794ab145ac48546298e, type: 2}
@@ -1700,11 +1700,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33a51c551b30549b49e7e5ab85d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 94b2662464a00924e854fb44ac36dfd7, type: 2}
+  moneyGeneratorTime: 0
+  moneyPerTime: 0
+  timer: 0
   moneyText: {fileID: 83310066}
   panelOpened: 0
   backgroundMusic: {fileID: 216642916}
+  mainVolumeMixer: {fileID: 24100000, guid: e0d1da8d1c02f4d4abab967f67c78207, type: 2}
   optionsHandler: {fileID: 1877553785}
+  saveSystem: {fileID: 11400000, guid: 713ad842cddaa004788bb7cb57564caa, type: 2}
 --- !u!1 &620804251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,13 +3094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee16aa9c41ef9a4b8fd7121f139640b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 94b2662464a00924e854fb44ac36dfd7, type: 2}
   optionsPanel: {fileID: 289582798}
   gameHandler: {fileID: 603111020}
   backgroundMusicSlider: {fileID: 880250579}
   mainVolumeSlider: {fileID: 1050472626}
   saveSystem: {fileID: 11400000, guid: 713ad842cddaa004788bb7cb57564caa, type: 2}
-  mainVolumeMixer: {fileID: 24100000, guid: e0d1da8d1c02f4d4abab967f67c78207, type: 2}
 --- !u!4 &1877553786
 Transform:
   m_ObjectHideFlags: 0

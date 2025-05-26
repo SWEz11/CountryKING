@@ -1,11 +1,8 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-
-[CreateAssetMenu(fileName = "SaveSystem", menuName = "Scriptable Objects/SaveSystemSO")]
-public class SaveSystem : ScriptableObject
+public class SaveSystem
 {
-
     //Volume
 
     public void SaveVolume(Slider slider, AudioSource audioSource, string prefsKey)
@@ -20,28 +17,34 @@ public class SaveSystem : ScriptableObject
         audioMixer.SetFloat(prefsKey, slider.value);
     }
 
-    public void LoadVolume(string prefsKey, Slider slider, AudioSource audioSource)
+    public void LoadVolume(string prefsKey, Slider slider, AudioSource audioSource, int defaultValue)
     {
-        if (PlayerPrefs.HasKey(prefsKey))
-        {
-            slider.value = PlayerPrefs.GetFloat(prefsKey);
-            audioSource.volume = slider.value;
-        }
+        slider.value = PlayerPrefs.GetFloat(prefsKey, defaultValue);
+        audioSource.volume = slider.value;
     }
 
-    public void LoadMixerVolume(string prefsKey, Slider slider, AudioMixer audioMixer)
+    public void LoadMixerVolume(string prefsKey, Slider slider, AudioMixer audioMixer, int defaultValue)
     {
-        if (PlayerPrefs.HasKey(prefsKey))
-        {
-            slider.value = PlayerPrefs.GetFloat("MainVolumeValue");
-            float volume = slider.value;
-            audioMixer.GetFloat(prefsKey, out volume);
-        }
-        else
-        {
-            float value = slider.value = 1;
-            float volume = value;
-            audioMixer.GetFloat(prefsKey, out volume);
-        }
+        slider.value = PlayerPrefs.GetFloat("MainVolumeValue", defaultValue);
+        float volume = slider.value;
+        audioMixer.GetFloat(prefsKey, out volume);
+    }
+
+    //Money
+
+    public void SaveMoney(int moneyAmount, string prefsKeyForMoney, float generatorTime, string prefsKeyForGenerator, int moneyPerTime, string prefsKeyForMoneyPerTime)
+    {
+        PlayerPrefs.SetInt(prefsKeyForMoney, moneyAmount);
+        PlayerPrefs.SetFloat(prefsKeyForGenerator, generatorTime);
+        PlayerPrefs.SetInt(prefsKeyForMoneyPerTime, moneyPerTime);
+        Debug.Log("Saved " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
+    }
+
+    public void LoadMoney(int moneyAmount, string prefsKeyForMoney, float generatorTime, string prefsKeyForGenerator, int moneyPerTime, string prefsKeyForMoneyPerTime)
+    {
+        moneyAmount = PlayerPrefs.GetInt(prefsKeyForMoney, 0);
+        generatorTime = PlayerPrefs.GetFloat(prefsKeyForGenerator, 6.0f);
+        moneyPerTime = PlayerPrefs.GetInt(prefsKeyForMoneyPerTime, 1);
+        Debug.Log("Loaded " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 }

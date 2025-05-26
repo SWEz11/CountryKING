@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class MailHandler : MonoBehaviour
 {
-    [SerializeField] Player player;
-
     [Header("Mail System")]
     public GameObject mailPanel;
 
