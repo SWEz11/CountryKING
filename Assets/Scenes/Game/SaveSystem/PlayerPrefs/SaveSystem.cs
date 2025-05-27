@@ -4,8 +4,6 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 public class SaveSystem
 {
-    [SerializeField]
-
     //Volume
 
     public void SaveVolume(Slider slider, AudioSource audioSource, string prefsKey)
@@ -58,11 +56,13 @@ public class SaveSystem
 
     public void SaveStorage(string prefsKeyForArmyCount, int armyCount)
     {
+        //ArmyCount
         PlayerPrefs.SetInt(prefsKeyForArmyCount, armyCount);
     }
 
     public void LoadStorage(string prefsKeyForArmyCount, ref int armyCount, TMP_Text armyCountText, int defaultValue)
     {
+        //ArmyCount
         armyCount = PlayerPrefs.GetInt(prefsKeyForArmyCount, defaultValue);
         armyCountText.text = "Army Count " + armyCount.ToString();
     }
