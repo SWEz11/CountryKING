@@ -1,5 +1,3 @@
-using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 
@@ -24,13 +22,18 @@ public class StorageHandler : MonoBehaviour
     [SerializeField] TMP_Text pistolCountText;
 
 
+    //Functions
+    void UpdateCount(TMP_Text countText, string countString, int count, string prefsKey)
+    {
+        countText.text = countString + count.ToString();
+        saveSystem.SaveStorage(prefsKey, count);
+    }
 
     //Army
 
     void UpdateArmyCount()
     {
-        armyCountText.text = "Army Count: " + armyCount.ToString();
-        saveSystem.SaveStorage("ArmyCount", armyCount);
+        UpdateCount(armyCountText, "Army Count: ", armyCount, "ArmyCount");
     }
 
     public void IncreaseArmyCount(int armyAmount)
@@ -48,7 +51,7 @@ public class StorageHandler : MonoBehaviour
     public void ArmyCost()
     {
         armyCost = + armyCount * 6;
-        shopHandler.armyCostText.text = "Cost: " + armyCost.ToString();
+        shopHandler.armyCostText.text = "Cost: " + armyCost.ToString() + "$";
     }
 
     // Pistol
@@ -56,8 +59,7 @@ public class StorageHandler : MonoBehaviour
 
     void UpdatePistolCount()
     {
-        pistolCountText.text = "Pistol Count: " + pistolCount.ToString();
-        saveSystem.SaveStorage("PistolCount", pistolCount);
+        UpdateCount(pistolCountText, "Pistol Count: ", pistolCount, "PistolCount");
     }
 
     public void IncreasePistolCount(int pistolAmount)
@@ -75,7 +77,7 @@ public class StorageHandler : MonoBehaviour
     public void PistolCost()
     {
         pistolCost = + pistolCount * 4;
-        shopHandler.pistolCostText.text = "Cost: " + pistolCost.ToString();
+        shopHandler.pistolCostText.text = "Cost: " + pistolCost.ToString() + "$";
     }
 
 
