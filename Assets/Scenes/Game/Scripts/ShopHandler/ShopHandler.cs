@@ -11,6 +11,9 @@ public class ShopHandler : MonoBehaviour
     [SerializeField] GameObject shopPanel;
 
     //Items
+    [Header("Army")]
+    public TMP_Text armyCostText;
+
     [Header("Pistol")]
     public TMP_Text pistolCostText;
 
@@ -21,6 +24,7 @@ public class ShopHandler : MonoBehaviour
             shopPanel.SetActive(true);
             gameHandler.panelOpened = true;
             storageHandler.PistolCost();
+            storageHandler.ArmyCost();
         }
     }
 
@@ -35,9 +39,18 @@ public class ShopHandler : MonoBehaviour
         if (storageHandler.pistolCost <= gameHandler.moneyInt)
         {
             gameHandler.RemoveMoney(storageHandler.pistolCost);
-            storageHandler.pistolCount++;
-            storageHandler.PistolCost();
             storageHandler.IncreasePistolCount(1);
+            storageHandler.PistolCost();
+        }
+    }
+
+    public void BuyArmy()
+    {
+        if (storageHandler.armyCost <= gameHandler.moneyInt)
+        {
+            gameHandler.RemoveMoney(storageHandler.armyCost);
+            storageHandler.IncreaseArmyCount(1);
+            storageHandler.ArmyCost();
         }
     }
 }
