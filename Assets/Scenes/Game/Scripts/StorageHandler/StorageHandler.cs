@@ -8,14 +8,20 @@ public class StorageHandler : MonoBehaviour
     [Header("Storage System")]
 
     [Header("Get Scripts / Objects")]
-    [SerializeField] TMP_Text armyCountText;
     [SerializeField] GameObject storagePanel;
     [SerializeField] GameHandler gameHandler;
+    [SerializeField] ShopHandler shopHandler;
     SaveSystem saveSystem = new SaveSystem();
 
     //Items
+    [Header("Army")]
     int armyCount;
-    int pistol;
+    int armyCost;
+    [SerializeField] TMP_Text armyCountText;
+    [Header("Pistol")]
+    public int pistolCount;
+    public int pistolCost;
+    [SerializeField] TMP_Text pistolCountText;
 
 
 
@@ -23,7 +29,7 @@ public class StorageHandler : MonoBehaviour
 
     void UpdateArmyCount()
     {
-        armyCountText.text = "Army Count " + armyCount.ToString();
+        armyCountText.text = "Army Count: " + armyCount.ToString();
         saveSystem.SaveStorage("ArmyCount", armyCount);
     }
 
@@ -39,15 +45,32 @@ public class StorageHandler : MonoBehaviour
         UpdateArmyCount();
     }
 
-    //ArmyCost
-    // public void ArmyCost()
-    // {
-    //     switch (armyCount)
-    //     {
-    //         case 1:
-    //     }
+    // Pistol
 
-    // }
+    
+    void UpdatePistolCount()
+    {
+        pistolCountText.text = "Pistol Count: " + pistolCount.ToString();
+        saveSystem.SaveStorage("PistolCount", pistolCount);
+    }
+
+    public void IncreasePistolCount(int pistolAmount)
+    {
+        armyCount += pistolAmount;
+        UpdatePistolCount();
+    }
+
+    public void DecreasePistolCount(int pistolAmount)
+    {
+        armyCount -= pistolAmount;
+        UpdatePistolCount();
+    }
+
+    public void PistolCost()
+    {
+        pistolCost = + pistolCount * 2;
+        shopHandler.pistolCostText.text = "Cost " + pistolCost.ToString();
+    }
 
 
     //Panel
@@ -68,7 +91,8 @@ public class StorageHandler : MonoBehaviour
 
     public void LoadStorage()
     {
-        saveSystem.LoadStorage("ArmyCount", ref armyCount, armyCountText, 0);
+        saveSystem.LoadStorage("ArmyCount", ref armyCount, armyCountText, "Army Count ", 0);
+        saveSystem.LoadStorage("PistolCount", ref pistolCount, pistolCountText, "Pistol Count ", 1);
     }
 
 

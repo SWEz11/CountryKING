@@ -34,12 +34,11 @@ public class SaveSystem
 
     //Money
 
-    public void SaveMoney(int moneyAmount, string prefsKeyForMoney, float generatorTime, string prefsKeyForGenerator, int moneyPerTime, string prefsKeyForMoneyPerTime)
+    public void SaveMoney(int moneyAmount, string prefsKeyForMoney, float generatorTime, string prefsKeyForGenerator)
     {
         PlayerPrefs.SetInt(prefsKeyForMoney, moneyAmount);
         PlayerPrefs.SetFloat(prefsKeyForGenerator, generatorTime);
-        PlayerPrefs.SetInt(prefsKeyForMoneyPerTime, moneyPerTime);
-        Debug.Log("Loaded Money " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
+        //Debug.Log("Loaded Money " + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 
     public void LoadMoney(ref int moneyAmount, string prefsKeyForMoney, TMP_Text moneyText, ref float generatorTime, string prefsKeyForGenerator, ref int moneyPerTime, string prefsKeyForMoneyPerTime)
@@ -48,22 +47,20 @@ public class SaveSystem
         moneyText.text = moneyAmount.ToString() + "$";
         generatorTime = PlayerPrefs.GetFloat(prefsKeyForGenerator, 6.0f);
         moneyPerTime = PlayerPrefs.GetInt(prefsKeyForMoneyPerTime, 1);
-        Debug.Log("Loaded Money" + moneyAmount + " " + generatorTime + " " + moneyPerTime);
+        //Debug.Log("Loaded Money" + moneyAmount + " " + generatorTime + " " + moneyPerTime);
     }
 
     //Storage
 
 
-    public void SaveStorage(string prefsKeyForArmyCount, int armyCount)
+    public void SaveStorage(string prefsKey, int count)
     {
-        //ArmyCount
-        PlayerPrefs.SetInt(prefsKeyForArmyCount, armyCount);
+        PlayerPrefs.SetInt(prefsKey, count);
     }
 
-    public void LoadStorage(string prefsKeyForArmyCount, ref int armyCount, TMP_Text armyCountText, int defaultValue)
+    public void LoadStorage(string prefsKey, ref int count, TMP_Text countText, string text, int defaultValue)
     {
-        //ArmyCount
-        armyCount = PlayerPrefs.GetInt(prefsKeyForArmyCount, defaultValue);
-        armyCountText.text = "Army Count " + armyCount.ToString();
+        count = PlayerPrefs.GetInt(prefsKey, defaultValue);
+        countText.text = text + count.ToString();
     }
 }

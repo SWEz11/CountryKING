@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShopHandler : MonoBehaviour
@@ -9,12 +10,17 @@ public class ShopHandler : MonoBehaviour
     [SerializeField] StorageHandler storageHandler;
     [SerializeField] GameObject shopPanel;
 
+    //Items
+    [Header("Pistol")]
+    public TMP_Text pistolCostText;
+
     public void OpenShopPanel()
     {
         if (!gameHandler.panelOpened)
         {
             shopPanel.SetActive(true);
             gameHandler.panelOpened = true;
+            storageHandler.PistolCost();
         }
     }
 
@@ -24,8 +30,14 @@ public class ShopHandler : MonoBehaviour
         gameHandler.panelOpened = false;
     }
 
-    // public void BuyPistol()
-    // {
-    //     storageHandler.IncreaseArmyCount(1);
-    // }
+    public void BuyPistol()
+    {
+        if (storageHandler.pistolCost <= gameHandler.moneyInt)
+        {
+            gameHandler.RemoveMoney(storageHandler.pistolCost);
+            storageHandler.pistolCount++;
+            storageHandler.PistolCost();
+            storageHandler.IncreasePistolCount(1);
+        }
+    }
 }

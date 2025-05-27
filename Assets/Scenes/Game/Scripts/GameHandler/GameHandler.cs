@@ -15,7 +15,7 @@ public class GameHandler : MonoBehaviour
 
     [Header("Money")]
     [SerializeField] TMP_Text moneyText;
-    private int moneyInt;
+    public int moneyInt;
 
     [Header("Panels")]
     public bool panelOpened;
@@ -52,7 +52,7 @@ public class GameHandler : MonoBehaviour
     public void UpdateMoney()
     {
         moneyText.text = moneyInt.ToString() + "$";
-        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime");
     }
 
     public void AddMoney(int moneyAmount)
@@ -83,7 +83,7 @@ public class GameHandler : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime", moneyPerTime, "MoneyPerTime");
+        saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime");
         storageHandler.LoadStorage();
     }
 
