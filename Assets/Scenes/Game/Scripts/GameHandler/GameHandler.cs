@@ -1,6 +1,8 @@
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -28,6 +30,9 @@ public class GameHandler : MonoBehaviour
     [SerializeField] StorageHandler storageHandler;
     SaveSystem saveSystem = new SaveSystem();
 
+    [Header("ResetGame")]
+    [SerializeField] GameObject warningPanel;
+
     void Awake()
     {
         //Volumes
@@ -38,7 +43,7 @@ public class GameHandler : MonoBehaviour
         saveSystem.LoadMoney(ref moneyInt, "MoneyAmount", moneyText, ref moneyGeneratorTime, "MoneyGeneratorTime", ref moneyPerTime, "MoneyPerTime");
 
         //Storage
-        storageHandler.LoadStorage();   
+        storageHandler.LoadStorage();
     }
 
     void Update()
@@ -85,6 +90,23 @@ public class GameHandler : MonoBehaviour
         saveSystem.SaveMoney(moneyInt, "MoneyAmount", moneyGeneratorTime, "MoneyGeneratorTime");
         storageHandler.LoadStorage();
     }
+
+    //Reset game
+
+    //Warning
+    public void Warning()
+    {
+        warningPanel.SetActive(true);
+        optionsHandler.closeButton.interactable = false;
+    }
+
+    public void ResetGame()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Game");
+    }
+
+
 
 
 }

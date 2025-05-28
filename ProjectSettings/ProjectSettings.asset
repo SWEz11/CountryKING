@@ -16,7 +16,7 @@ PlayerSettings:
   productName: CountryKING
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.54901963, g: 0.4392157, b: 0.32156864, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 0

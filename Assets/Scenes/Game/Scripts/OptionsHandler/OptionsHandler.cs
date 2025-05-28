@@ -10,6 +10,7 @@ public class OptionsHandler : MonoBehaviour
     [SerializeField] GameHandler gameHandler;
     [SerializeField] Slider backgroundMusicSlider;
     [SerializeField] Slider mainVolumeSlider;
+    public Button closeButton; // For ResetGame warning
     SaveSystem saveSystem = new SaveSystem();
     public void OpenOptionsPanel()
     {
