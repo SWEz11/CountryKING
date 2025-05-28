@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -106,7 +105,9 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-
-
-
+    public void CancelGameReseting()
+    {
+        warningPanel.SetActive(false);
+        optionsHandler.closeButton.interactable = true;
+    }
 }
