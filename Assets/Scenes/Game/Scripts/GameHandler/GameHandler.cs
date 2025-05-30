@@ -34,6 +34,14 @@ public class GameHandler : MonoBehaviour
     [Header("ResetGame")]
     [SerializeField] GameObject warningPanel;
 
+    [Header("Battle InProgress")]
+    [SerializeField] GameObject battleInProgressPanel;
+
+    [Header("Battle WIN")]
+    [SerializeField] GameHandler countryWinPanel;
+    [SerializeField] TMP_Text countryWinIncreaseArmy;
+    [SerializeField] TMP_Text countryWinIncreasePistol;
+
     void Awake()
     {
         //Volumes
@@ -127,6 +135,7 @@ public class GameHandler : MonoBehaviour
     {
         if (storageHandler.armyCount >= armyCount && storageHandler.armyCount >= pistolCount)
         {
+            battleInProgressPanel.SetActive(true);
             float timer = 0.0f;
             float battlingTime = Random.Range(minValue, maxValue);
             timer += Time.deltaTime;
@@ -136,8 +145,12 @@ public class GameHandler : MonoBehaviour
                 if (playerWin == 1)
                 {
                     isOcupied = 1;
-                    storageHandler.IncreaseArmyCount(Random.Range(1, 10));
-                    storageHandler.IncreasePistolCount(Random.Range(1, 8));
+                    int increasedArmyCount = Random.Range(1, 10);
+                    storageHandler.IncreaseArmyCount(increasedArmyCount);
+                    countryWinIncreaseArmy.text = "You increased your army count by: " + increasedArmyCount.ToString();
+                    int increasedPistolCount = Random.Range(1, 8);
+                    storageHandler.IncreaseArmyCount(increasedPistolCount);
+                    countryWinIncreasePistol.text = "You increased your pistol count by: " + increasedPistolCount.ToString();
                 }
                 else
                 {
