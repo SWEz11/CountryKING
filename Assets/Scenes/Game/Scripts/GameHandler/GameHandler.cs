@@ -28,6 +28,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] OptionsHandler optionsHandler;
     [SerializeField] StorageHandler storageHandler;
     [SerializeField] MarketHandler marketSellingHandler;
+    [SerializeField] Vostrelia vostreliaInfo;
     SaveSystem saveSystem = new SaveSystem();
 
     [Header("ResetGame")]
@@ -48,6 +49,9 @@ public class GameHandler : MonoBehaviour
         //Market
         marketSellingHandler.LoadGasButton();
         marketSellingHandler.GasCost(5, 15);
+
+        //Vostrelia
+        vostreliaInfo.LoadVostreliaInfo();
     }
 
     void Update()
@@ -114,5 +118,34 @@ public class GameHandler : MonoBehaviour
     {
         warningPanel.SetActive(false);
         optionsHandler.closeButton.interactable = true;
+    }
+
+
+    //Battle
+
+    public void Battle(int armyCount, int pistolCount, int minValue, int maxValue, int isOcupied)
+    {
+        if (storageHandler.armyCount >= armyCount && storageHandler.armyCount >= pistolCount)
+        {
+            float timer = 0.0f;
+            float battlingTime = Random.Range(minValue, maxValue);
+            timer += Time.deltaTime;
+            if (timer >= battlingTime)
+            {
+                int playerWin = Random.Range(0, 1);
+                if (playerWin == 1)
+                {
+                    isOcupied = 1;
+                    storageHandler.IncreaseArmyCount(Random.Range(1, 10));
+                    storageHandler.IncreasePistolCount(Random.Range(1, 8));
+                }
+                else
+                {
+                    isOcupied = 0;
+                    storageHandler.DecreaseArmyCount(vostreliaInfo.armyCount);
+                    storageHandler.DecreasePistolCount(vostreliaInfo.pistolCount);
+                }
+            }
+        }
     }
 }

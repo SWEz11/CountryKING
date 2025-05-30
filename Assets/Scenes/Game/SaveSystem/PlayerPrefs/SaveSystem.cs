@@ -85,4 +85,24 @@ public class SaveSystem
         }
     }
 
+    //CountryInfo
+    public void SaveInfo(string prefsKey, int isOcupied)
+    {
+        PlayerPrefs.SetInt(prefsKey, isOcupied);
+    }
+
+    public void LoadInfo(string prefsKey, int isOcupied, TMP_Text ocupiedText)
+    {
+        isOcupied = PlayerPrefs.GetInt(prefsKey, 0);
+        if (isOcupied == 1)
+        {
+            ocupiedText.text = "Ocupied";
+        }
+        else
+        {
+            ocupiedText.text = "No Ocupied";
+        }
+    }
+
+    //BattleInfo
 }
