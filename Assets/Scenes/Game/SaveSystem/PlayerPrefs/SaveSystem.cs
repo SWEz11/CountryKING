@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 public class SaveSystem
 {
     //Volume
@@ -63,4 +64,25 @@ public class SaveSystem
         count = PlayerPrefs.GetInt(prefsKey, defaultValue);
         countText.text = text + count.ToString();
     }
+
+    //Market
+    public void SaveMarket(string prefsKey, int value, bool canPress, Button button)
+    {
+        PlayerPrefs.SetInt(prefsKey, value);
+        button.interactable = canPress;
+    }
+
+    public void LoadMarket(string prefsKey, int value, Button button)
+    {
+        value = PlayerPrefs.GetInt(prefsKey, 1);
+        if (value == 1)
+        {
+            button.interactable = true;
+        }
+        else
+        {
+            button.interactable = false;
+        }
+    }
+
 }

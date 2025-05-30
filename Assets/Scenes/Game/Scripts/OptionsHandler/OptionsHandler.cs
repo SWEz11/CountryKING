@@ -21,7 +21,7 @@ public class OptionsHandler : MonoBehaviour
         }
     }
 
-    public void CloseOptionsPane()
+    public void CloseOptionsPanel()
     {
         optionsPanel.SetActive(false);
         gameHandler.panelOpened = false;

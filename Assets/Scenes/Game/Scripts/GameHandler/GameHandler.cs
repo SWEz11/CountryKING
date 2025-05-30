@@ -27,6 +27,7 @@ public class GameHandler : MonoBehaviour
     [Header("Get Scripts / Objects")]
     [SerializeField] OptionsHandler optionsHandler;
     [SerializeField] StorageHandler storageHandler;
+    [SerializeField] MarketHandler marketSellingHandler;
     SaveSystem saveSystem = new SaveSystem();
 
     [Header("ResetGame")]
@@ -43,6 +44,10 @@ public class GameHandler : MonoBehaviour
 
         //Storage
         storageHandler.LoadStorage();
+
+        //Market
+        marketSellingHandler.LoadGasButton();
+        marketSellingHandler.GasCost(5, 15);
     }
 
     void Update()
