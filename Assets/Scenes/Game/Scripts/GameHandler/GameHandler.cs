@@ -29,6 +29,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] StorageHandler storageHandler;
     [SerializeField] MarketHandler marketSellingHandler;
     [SerializeField] Vostrelia vostreliaInfo;
+    [SerializeField] Kalesia kalesiaInfo;
     SaveSystem saveSystem = new SaveSystem();
 
     [Header("ResetGame")]
@@ -48,6 +49,11 @@ public class GameHandler : MonoBehaviour
     [SerializeField] TMP_Text countryWinIncreaseArmy;
     [SerializeField] TMP_Text countryWinIncreasePistol;
 
+    [Header("Battle LOST")]
+    [SerializeField] GameObject countryLostPanel;
+    [SerializeField] TMP_Text countryLostDecreaseArmy;
+    [SerializeField] TMP_Text countryLostDecreasePistol;
+
     void Awake()
     {
         //Volumes
@@ -63,9 +69,6 @@ public class GameHandler : MonoBehaviour
         //Market
         marketSellingHandler.LoadGasButton();
         marketSellingHandler.GasCost(5, 15);
-
-        //Vostrelia
-        vostreliaInfo.LoadVostreliaInfo();
     }
 
     void Update()
@@ -74,6 +77,9 @@ public class GameHandler : MonoBehaviour
 
         //Battle Vostrelia
         vostreliaInfo.Battle();
+
+        //Battle Kalesia
+        kalesiaInfo.Battle();
     }
 
     //Money
@@ -147,12 +153,12 @@ public class GameHandler : MonoBehaviour
             panel.SetActive(false);
             battleInProgressPanel.SetActive(true);
             battleTimer += Time.deltaTime;
-            Debug.Log(timer + " " + battlingTime);
+            //Debug.Log(timer + " " + battlingTime);
             if (Mathf.RoundToInt(battleTimer) >= battlingTime)
             {
-                Debug.Log("Timer end");
+                //Debug.Log("Timer end");
                 int playerWin = Random.Range(0, 2);
-                Debug.Log("Win? " + playerWin);
+                //Debug.Log("Win? " + playerWin);
                 if (playerWin == 1)
                 {
                     battleInProgressPanel.SetActive(false);
@@ -172,6 +178,9 @@ public class GameHandler : MonoBehaviour
                 else
                 {
                     battleInProgressPanel.SetActive(false);
+                    countryLostPanel.SetActive(true);
+                    countryLostDecreaseArmy.text = "You decreased your army count by: " + armyCount.ToString();
+                    countryLostDecreasePistol.text = "You decreased your pistol count by: " + pistolCount.ToString();
                     isOcupied = 0;
                     storageHandler.DecreaseArmyCount(armyCount);
                     storageHandler.DecreasePistolCount(pistolCount);
@@ -187,6 +196,11 @@ public class GameHandler : MonoBehaviour
     public void CloseCountryWinPanel()
     {
         countryWinPanel.SetActive(false);
+        panelOpened = false;
+    }
+    public void CloseCountryLostPanel()
+    {
+        countryLostPanel.SetActive(false);
         panelOpened = false;
     }
 }

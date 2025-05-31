@@ -34,6 +34,7 @@ public class Vostrelia : MonoBehaviour
         if (!gameHandler.panelOpened)
         {
             vostreliaPanel.SetActive(true);
+            LoadVostreliaInfo();
             gameHandler.panelOpened = true;
         }
     }
@@ -55,6 +56,7 @@ public class Vostrelia : MonoBehaviour
 
     public void LoadVostreliaInfo()
     {
+        BattleInformation(15, 30);
         saveSystem.LoadInfo("Vostrelia", isOcupied, ocupiedText, battleButton);
     }
 
