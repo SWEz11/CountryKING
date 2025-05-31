@@ -91,16 +91,18 @@ public class SaveSystem
         PlayerPrefs.SetInt(prefsKey, isOcupied);
     }
 
-    public void LoadInfo(string prefsKey, int isOcupied, TMP_Text ocupiedText)
+    public void LoadInfo(string prefsKey, int isOcupied, TMP_Text ocupiedText, Button button)
     {
         isOcupied = PlayerPrefs.GetInt(prefsKey, 0);
         if (isOcupied == 1)
         {
             ocupiedText.text = "Ocupied";
+            button.interactable = false;
         }
         else
         {
             ocupiedText.text = "No Ocupied";
+            button.interactable = true;
         }
     }
 

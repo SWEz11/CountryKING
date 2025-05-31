@@ -36,9 +36,15 @@ public class GameHandler : MonoBehaviour
 
     [Header("Battle InProgress")]
     [SerializeField] GameObject battleInProgressPanel;
+    public bool inWar;
+
+    public bool canBattle;
+
+    public float battlingTime;
+    float battleTimer = 0.0f;
 
     [Header("Battle WIN")]
-    [SerializeField] GameHandler countryWinPanel;
+    [SerializeField] GameObject countryWinPanel;
     [SerializeField] TMP_Text countryWinIncreaseArmy;
     [SerializeField] TMP_Text countryWinIncreasePistol;
 
@@ -65,6 +71,9 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         MoneyGenerator(moneyGeneratorTime, moneyPerTime);
+
+        //Battle Vostrelia
+        vostreliaInfo.Battle();
     }
 
     //Money
@@ -131,34 +140,53 @@ public class GameHandler : MonoBehaviour
 
     //Battle
 
-    public void Battle(int armyCount, int pistolCount, int minValue, int maxValue, int isOcupied)
+    public void Battle(int armyCount, int pistolCount, int isOcupied, GameObject panel, string prefsKeyForOcupied)
     {
-        if (storageHandler.armyCount >= armyCount && storageHandler.armyCount >= pistolCount)
+        if (inWar)
         {
+            panel.SetActive(false);
             battleInProgressPanel.SetActive(true);
-            float timer = 0.0f;
-            float battlingTime = Random.Range(minValue, maxValue);
-            timer += Time.deltaTime;
-            if (timer >= battlingTime)
+            battleTimer += Time.deltaTime;
+            Debug.Log(timer + " " + battlingTime);
+            if (Mathf.RoundToInt(battleTimer) >= battlingTime)
             {
-                int playerWin = Random.Range(0, 1);
+                Debug.Log("Timer end");
+                int playerWin = Random.Range(0, 2);
+                Debug.Log("Win? " + playerWin);
                 if (playerWin == 1)
                 {
+                    battleInProgressPanel.SetActive(false);
                     isOcupied = 1;
                     int increasedArmyCount = Random.Range(1, 10);
+                    countryWinPanel.SetActive(true);
                     storageHandler.IncreaseArmyCount(increasedArmyCount);
                     countryWinIncreaseArmy.text = "You increased your army count by: " + increasedArmyCount.ToString();
                     int increasedPistolCount = Random.Range(1, 8);
                     storageHandler.IncreaseArmyCount(increasedPistolCount);
                     countryWinIncreasePistol.text = "You increased your pistol count by: " + increasedPistolCount.ToString();
+                    saveSystem.SaveInfo(prefsKeyForOcupied, isOcupied);
+                    battleTimer = 0;
+                    //panelOpened = false;
+                    inWar = false;
                 }
                 else
                 {
+                    battleInProgressPanel.SetActive(false);
                     isOcupied = 0;
-                    storageHandler.DecreaseArmyCount(vostreliaInfo.armyCount);
-                    storageHandler.DecreasePistolCount(vostreliaInfo.pistolCount);
+                    storageHandler.DecreaseArmyCount(armyCount);
+                    storageHandler.DecreasePistolCount(pistolCount);
+                    saveSystem.SaveInfo(prefsKeyForOcupied, isOcupied);
+                    battleTimer = 0.0f;
+                    panelOpened = false;
+                    inWar = false;
                 }
             }
         }
+    }
+
+    public void CloseCountryWinPanel()
+    {
+        countryWinPanel.SetActive(false);
+        panelOpened = false;
     }
 }

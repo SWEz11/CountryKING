@@ -44,7 +44,7 @@ public class Vostrelia : MonoBehaviour
         gameHandler.panelOpened = false;
     }
 
-    public void BattleInformation(int minValue, int maxValue)
+    void BattleInformation(int minValue, int maxValue)
     {
         armyCount = Random.Range(minValue, maxValue);
         armyCountText.text = armyCount.ToString() + " Vostrelia Army";
@@ -55,15 +55,26 @@ public class Vostrelia : MonoBehaviour
 
     public void LoadVostreliaInfo()
     {
-        saveSystem.LoadInfo("Vostrelia", isOcupied, ocupiedText);
-        if (isOcupied == 1)
+        saveSystem.LoadInfo("Vostrelia", isOcupied, ocupiedText, battleButton);
+    }
+
+    public void Battle()
+    {
+        gameHandler.Battle(armyCount, pistolCount, isOcupied, vostreliaPanel, "Vostrelia");
+    }
+
+    public void EnableBattle()
+    {
+        if (storageHandler.armyCount >= armyCount && storageHandler.armyCount >= pistolCount && !gameHandler.canBattle)
         {
-            battleButton.interactable = false;
+            Battle();
+            gameHandler.inWar = true;
+            gameHandler.battlingTime = Random.Range(1, 10);
+            gameHandler.canBattle = false;
         }
         else
         {
-            BattleInformation(15, 45);
-            battleButton.interactable = true;
+            print("No War");
         }
     }
 }
