@@ -1279,7 +1279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 264514094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1880000784}
+        m_TargetAssemblyTypeName: Kalesia, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &264514094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,8 +2927,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1880000783}
-        m_TargetAssemblyTypeName: Vostrelia, Assembly-CSharp
+      - m_Target: {fileID: 1880000784}
+        m_TargetAssemblyTypeName: Kalesia, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
@@ -3679,6 +3691,7 @@ MonoBehaviour:
   storageHandler: {fileID: 884797365}
   marketSellingHandler: {fileID: 1321709425}
   vostreliaInfo: {fileID: 1880000783}
+  kalesiaInfo: {fileID: 1880000784}
   warningPanel: {fileID: 112842727}
   battleInProgressPanel: {fileID: 1579551856}
   inWar: 0
@@ -11396,10 +11409,10 @@ MonoBehaviour:
   ocupiedText: {fileID: 1068602878}
   gameHandler: {fileID: 603111020}
   storageHandler: {fileID: 884797365}
-  armyCount: 0
-  armyCountText: {fileID: 234263630}
-  pistolCount: 0
-  pistolCountText: {fileID: 1372299729}
+  armyCount2: 0
+  armyCount2Text: {fileID: 886316629}
+  pistolCount2: 0
+  pistolCount2Text: {fileID: 1208986983}
   battleButton: {fileID: 1941669969}
 --- !u!1 &1904340062
 GameObject:
