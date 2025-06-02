@@ -56,7 +56,7 @@ public class Kalesia : MonoBehaviour
 
     public void LoadKalesiaInfo()
     {
-        BattleInformation(15, 30);
+        BattleInformation(2, 3);
         saveSystem.LoadInfo("Kalesia", isOcupied, ocupiedText, battleButton);
     }
 

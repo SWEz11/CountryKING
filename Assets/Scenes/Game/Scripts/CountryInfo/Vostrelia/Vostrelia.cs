@@ -56,7 +56,7 @@ public class Vostrelia : MonoBehaviour
 
     public void LoadVostreliaInfo()
     {
-        BattleInformation(15, 30);
+        BattleInformation(2,3);
         saveSystem.LoadInfo("Vostrelia", isOcupied, ocupiedText, battleButton);
     }
 
