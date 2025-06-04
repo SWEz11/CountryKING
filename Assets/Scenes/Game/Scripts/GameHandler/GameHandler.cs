@@ -184,6 +184,14 @@ public class GameHandler : MonoBehaviour
                     isOcupied = 0;
                     storageHandler.DecreaseArmyCount(armyCount);
                     storageHandler.DecreasePistolCount(pistolCount);
+                    if (storageHandler.armyCount <= 0)
+                    {
+                        storageHandler.armyCount = 1;
+                    }
+                    if (storageHandler.pistolCount <= 0)
+                    {
+                        storageHandler.pistolCount = 1;
+                    }
                     saveSystem.SaveInfo(prefsKeyForOcupied, isOcupied);
                     battleTimer = 0.0f;
                     panelOpened = false;
