@@ -23,6 +23,7 @@ public class GameHandler : MonoBehaviour
     [Header("SoundsEffects")]
     public AudioSource backgroundMusic;
     public AudioMixer mainVolumeMixer;
+    [SerializeField] AudioSource warInProgressSoundsEffect;
 
     [Header("Get Scripts / Objects")]
     [SerializeField] OptionsHandler optionsHandler;
@@ -152,6 +153,8 @@ public class GameHandler : MonoBehaviour
         {
             panel.SetActive(false);
             battleInProgressPanel.SetActive(true);
+            backgroundMusic.Stop();
+            warInProgressSoundsEffect.Play();
             battleTimer += Time.deltaTime;
             //Debug.Log(timer + " " + battlingTime);
             if (Mathf.RoundToInt(battleTimer) >= battlingTime)
@@ -174,6 +177,8 @@ public class GameHandler : MonoBehaviour
                     battleTimer = 0;
                     //panelOpened = false;
                     inWar = false;
+                    warInProgressSoundsEffect.Stop();
+                    backgroundMusic.Play();
                 }
                 else
                 {
@@ -196,6 +201,8 @@ public class GameHandler : MonoBehaviour
                     battleTimer = 0.0f;
                     panelOpened = false;
                     inWar = false;
+                    warInProgressSoundsEffect.Stop();
+                    backgroundMusic.Play();
                 }
             }
         }
