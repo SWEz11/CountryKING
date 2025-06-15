@@ -70,6 +70,7 @@ public class GameHandler : MonoBehaviour
         //Market
         marketSellingHandler.LoadGasButton();
         marketSellingHandler.GasCost(1, 3);
+
     }
 
     void Update()
@@ -183,12 +184,12 @@ public class GameHandler : MonoBehaviour
                 else
                 {
                     battleInProgressPanel.SetActive(false);
+                    isOcupied = 0;
                     countryLostPanel.SetActive(true);
                     int decreasedArmyCount = Random.Range(0, armyCount);
                     countryLostDecreaseArmy.text = "You decreased your army count by: " + decreasedArmyCount.ToString();
                     int decreasedPistolCount = Random.Range(0, pistolCount);
                     countryLostDecreasePistol.text = "You decreased your pistol count by: " + decreasedPistolCount.ToString();
-                    isOcupied = 0;
                     storageHandler.DecreaseArmyCount(decreasedArmyCount);
                     storageHandler.DecreasePistolCount(decreasedPistolCount);
                     if (storageHandler.armyCount <= 0)
