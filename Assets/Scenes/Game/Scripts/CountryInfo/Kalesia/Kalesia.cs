@@ -9,7 +9,7 @@ public class Kalesia : MonoBehaviour
 
     [SerializeField] GameObject kalesiaPanel;
     SaveSystem saveSystem = new SaveSystem();
-    public int isOcupied2;
+    public int isOccupied2;
     [SerializeField] TMP_Text ocupiedText;
 
     [Header("Get Scripts / Objects")]
@@ -56,8 +56,8 @@ public class Kalesia : MonoBehaviour
 
     public void LoadKalesiaInfo()
     {
-        saveSystem.LoadInfo("Kalesia", isOcupied2, ocupiedText, battleButton);
-        if(isOcupied2 == 0)
+        saveSystem.LoadInfo("Kalesia", isOccupied2, ocupiedText, battleButton);
+        if(isOccupied2 == 0)
         {
             BattleInformation(1, 4);
         }
@@ -65,12 +65,12 @@ public class Kalesia : MonoBehaviour
 
     public void Battle()
     {
-        gameHandler.Battle(armyCount2, pistolCount2, isOcupied2, kalesiaPanel, "Kalesia");
+        gameHandler.Battle(armyCount2, pistolCount2, isOccupied2, kalesiaPanel, "Kalesia");
     }
 
     public void EnableBattle()
     {
-        if (storageHandler.armyCount >= armyCount2 && storageHandler.armyCount >= pistolCount2 && !gameHandler.canBattle)
+        if (storageHandler.armyCount >= armyCount2 && storageHandler.pistolCount >= pistolCount2 && !gameHandler.canBattle)
         {
             Battle();
             gameHandler.inWar = true;

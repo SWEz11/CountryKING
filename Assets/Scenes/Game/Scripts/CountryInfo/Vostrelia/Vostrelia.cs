@@ -9,7 +9,7 @@ public class Vostrelia : MonoBehaviour
 
     [SerializeField] GameObject vostreliaPanel;
     SaveSystem saveSystem = new SaveSystem();
-    public int isOcupied;
+    public int isOccupied;
     [SerializeField] TMP_Text ocupiedText;
 
     [Header("Get Scripts / Objects")]
@@ -56,8 +56,8 @@ public class Vostrelia : MonoBehaviour
 
     public void LoadVostreliaInfo()
     {
-        saveSystem.LoadInfo("Vostrelia", isOcupied, ocupiedText, battleButton);
-        if(isOcupied == 0)
+        saveSystem.LoadInfo("Vostrelia", isOccupied, ocupiedText, battleButton);
+        if(isOccupied == 0)
         {
             BattleInformation(1, 4);
         }
@@ -65,12 +65,12 @@ public class Vostrelia : MonoBehaviour
 
     public void Battle()
     {
-        gameHandler.Battle(armyCount, pistolCount, isOcupied, vostreliaPanel, "Vostrelia");
+        gameHandler.Battle(armyCount, pistolCount, isOccupied, vostreliaPanel, "Vostrelia");
     }
 
     public void EnableBattle()
     {
-        if (storageHandler.armyCount >= armyCount && storageHandler.armyCount >= pistolCount && !gameHandler.canBattle)
+        if (storageHandler.armyCount >= armyCount && storageHandler.pistolCount >= pistolCount && !gameHandler.canBattle)
         {
             Battle();
             gameHandler.inWar = true;

@@ -11384,7 +11384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vostreliaPanel: {fileID: 574222989}
-  isOcupied: 0
+  isOccupied: 0
   ocupiedText: {fileID: 2016602934}
   gameHandler: {fileID: 603111020}
   storageHandler: {fileID: 884797365}
@@ -11406,7 +11406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kalesiaPanel: {fileID: 682588575}
-  isOcupied2: 0
+  isOccupied2: 0
   ocupiedText: {fileID: 1068602878}
   gameHandler: {fileID: 603111020}
   storageHandler: {fileID: 884797365}

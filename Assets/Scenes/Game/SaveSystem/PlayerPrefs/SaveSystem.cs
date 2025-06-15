@@ -96,12 +96,12 @@ public class SaveSystem
         isOcupied = PlayerPrefs.GetInt(prefsKey, 0);
         if (isOcupied == 1)
         {
-            ocupiedText.text = "Ocupied";
+            ocupiedText.text = "Occupied";
             button.interactable = false;
         }
         else
         {
-            ocupiedText.text = "No Ocupied";
+            ocupiedText.text = "Not Occupied";
             button.interactable = true;
         }
     }

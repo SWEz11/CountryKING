@@ -148,7 +148,7 @@ public class GameHandler : MonoBehaviour
 
     //Battle
 
-    public void Battle(int armyCount, int pistolCount, int isOcupied, GameObject panel, string prefsKeyForOcupied)
+    public void Battle(int armyCount, int pistolCount, int isOccupied, GameObject panel, string prefsKeyForOccupied)
     {
         if (inWar)
         {
@@ -166,7 +166,7 @@ public class GameHandler : MonoBehaviour
                 if (playerWin == 1)
                 {
                     battleInProgressPanel.SetActive(false);
-                    isOcupied = 1;
+                    isOccupied = 1;
                     int increasedArmyCount = Random.Range(1, 10);
                     countryWinPanel.SetActive(true);
                     storageHandler.IncreaseArmyCount(increasedArmyCount);
@@ -174,7 +174,7 @@ public class GameHandler : MonoBehaviour
                     int increasedPistolCount = Random.Range(1, 8);
                     storageHandler.IncreaseArmyCount(increasedPistolCount);
                     countryWinIncreasePistol.text = "You increased your pistol count by: " + increasedPistolCount.ToString();
-                    saveSystem.SaveInfo(prefsKeyForOcupied, isOcupied);
+                    saveSystem.SaveInfo(prefsKeyForOccupied, isOccupied);
                     battleTimer = 0;
                     //panelOpened = false;
                     inWar = false;
@@ -184,7 +184,7 @@ public class GameHandler : MonoBehaviour
                 else
                 {
                     battleInProgressPanel.SetActive(false);
-                    isOcupied = 0;
+                    isOccupied = 0;
                     countryLostPanel.SetActive(true);
                     int decreasedArmyCount = Random.Range(0, armyCount);
                     countryLostDecreaseArmy.text = "You decreased your army count by: " + decreasedArmyCount.ToString();
@@ -202,7 +202,7 @@ public class GameHandler : MonoBehaviour
                         storageHandler.pistolCount = 1;
                         storageHandler.IncreasePistolCount(0);
                     }
-                    saveSystem.SaveInfo(prefsKeyForOcupied, isOcupied);
+                    saveSystem.SaveInfo(prefsKeyForOccupied, isOccupied);
                     battleTimer = 0.0f;
                     panelOpened = false;
                     inWar = false;
